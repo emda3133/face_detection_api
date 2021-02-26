@@ -63,15 +63,17 @@ app.post('/imageurl', (req, res) => {
   image.handleApiCall(req, res)  // so that the 'authorisation: <API KEY>' doesn't display in front end Network console for user to see
 })
 
+const PORT = process.env.PORT || 3005;
 
-app.listen(process.env.PORT, ()=> {
-  console.log(`app is running on port ${process.env.PORT}`);
+app.listen(PORT, ()=> {
+  console.log(`app is running on port ${PORT}`);
 })
 
 // *********************** BCRYPT *********************** //
 // bcrypt.hash("bacon", null, null, function(err, hash) {
 //     // Store hash in your password DB.
 // });
+
 //
 // // Load hash from your password DB.
 // bcrypt.compare("bacon", hash, function(err, res) {
