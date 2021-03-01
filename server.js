@@ -41,7 +41,7 @@ app.use(cors())  // to connect to front-end
 
 // this allows you to NOT have to pass (req, res) into each of the route functions below!!!
 app.get('/', (req, res) => {
-  res.send(database.users);
+  res.send(db.users);
 })
 
 // app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})  // since app.get('/') was defined above... this becomes:
@@ -63,7 +63,7 @@ app.post('/imageurl', (req, res) => {
   image.handleApiCall(req, res)  // so that the 'authorisation: <API KEY>' doesn't display in front end Network console for user to see
 })
 
-const PORT = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3005;  // Heroku has its own port! (run first if exists, if not run 3005)
 
 app.listen(PORT, ()=> {
   console.log(`app is running on port ${PORT}`);
