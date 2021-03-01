@@ -19,20 +19,6 @@ const db = knex({
   }
 });
 
-/*
-/ ------------ Plan what API Server will look like: ------------ /
-/ --> res = this is working
-/signin --> POST = success/fail (posting user info)
-/register --> POST = user
-/profile/:userId --> GET = user
-/image --> PUT --> user (since it's an update, user already exists)
-*/
-
-// --------- See all user info in the console --------- //
-// console.log(db.select('*').from('users').then(data => {
-//   console.log(data);
-// }));
-
 
 const app = express();
 
@@ -41,7 +27,7 @@ app.use(cors())  // to connect to front-end
 
 // this allows you to NOT have to pass (req, res) into each of the route functions below!!!
 app.get('/', (req, res) => {
-  res.send(db.users);
+  res.send('It is working!!~');
 })
 
 // app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})  // since app.get('/') was defined above... this becomes:
@@ -68,18 +54,3 @@ const PORT = process.env.PORT || 3005;  // Heroku has its own port! (run first i
 app.listen(PORT, ()=> {
   console.log(`app is running on port ${PORT}`);
 })
-
-// *********************** BCRYPT *********************** //
-// bcrypt.hash("bacon", null, null, function(err, hash) {
-//     // Store hash in your password DB.
-// });
-
-//
-// // Load hash from your password DB.
-// bcrypt.compare("bacon", hash, function(err, res) {
-//     // res == true
-// });
-// bcrypt.compare("veggies", hash, function(err, res) {
-//     // res = false
-// });
-// ****************************************************** //
