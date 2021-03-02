@@ -26,8 +26,8 @@ const db = knex({
 
 const app = express();
 
-app.use(bodyParser.json())  // so that `req.body.email` can be understood
-app.use(cors())  // to connect to front-end
+app.use(bodyParser.json());  // so that `req.body.email` can be understood
+app.use(cors());  // to connect to front-end
 
 // this allows you to NOT have to pass (req, res) into each of the route functions below!!!
 app.get('/', (req, res) => {
