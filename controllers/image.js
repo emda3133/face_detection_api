@@ -2,7 +2,7 @@
 const Clarifai = require('clarifai');
 
 const app = new Clarifai.App({
-  apiKey: '62d30789d6eb4720a8865402286c9a83'  // this is public in network console! so move to backend!
+  apiKey: process.env.API_CLARIFAI  // this is public in network console! so move to backend!
 });
 
 const handleApiCall = (req, res) => {
